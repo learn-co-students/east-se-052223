@@ -140,4 +140,3 @@ const ourPlan = () => {}
 
 
 
-[ 1,2,3,4,5,6 ].forEach( function(n) { console.log( n * 10 ) } )
