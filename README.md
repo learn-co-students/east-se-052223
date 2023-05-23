@@ -1,4 +1,4 @@
-# east-se-052223
+# east-se-052223 for the win!
 
 | Lecture | Video | Code |
 | - | - | - |
