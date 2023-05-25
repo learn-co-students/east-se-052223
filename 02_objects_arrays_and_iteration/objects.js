@@ -1,5 +1,7 @@
 // ✅ Creating & Accessing Objects
-
+// mr meow?
+// key value pairs that we call properties
+// ordering doesn't matter
 
 // creating object literals
 
