@@ -40,14 +40,40 @@ const pokemons = [
   },
 ];
 
+console.log('hello world')
+
 // Add each pokemon to the pokemon container
 
+// querySelector
+// getElementById
+// document.addEventListener('DOMContentLoaded', () => {
+//   console.log('domContent Loaded')
+  
+// })
+const container = document.getElementById('poke-container')
+
+
+function handleImageClick(event, pokemon) {
+  console.log(event,pokemon)
+}
+
+pokemons.forEach((onePokemon) => {
+  const image = document.createElement('img')
+  // image.src = onePokemon.img
+  image.setAttribute('src', onePokemon.img)
+  image.alt = onePokemon.name
+  container.append(image)
+
+  image.addEventListener('click', (event) =>  handleImageClick(event, onePokemon))
+})
+
+// for in loop
+// forEach method
 
 
 // ✅ Handling Click Events
      
   // addEventListener(event, callbackFunction);
-
 
 
   // when would we define callbackFunction as an anonymous function instead
@@ -57,7 +83,7 @@ const pokemons = [
       // vs. 
     // addEventListener("click", doSomething);
 
-    
+
 
   // BONUS: event bubbling
 
