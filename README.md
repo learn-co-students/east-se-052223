@@ -10,3 +10,4 @@
 |03 - DOM Manipulation | [Video](https://youtu.be/yVtDfmLfP9U)|[Code](https://github.com/learn-co-students/east-se-052223/blob/solutions/03_dom_manipulation/index.js)
 |04 - DOM Events | [Video](https://youtu.be/3eB1owRvrtk)|[Code](https://github.com/learn-co-students/east-se-052223/tree/solutions/04_dom_events_and_forms)
 |04 - Forms | [Video](https://youtu.be/S_6tvX_JdRg)|[Code](https://github.com/learn-co-students/east-se-052223/tree/solutions/04_dom_events_and_forms)
+|05 - Fetch | [Video](https://youtu.be/cLXcTVbrSag)|[Code](https://github.com/learn-co-students/east-se-052223/blob/solutions/05_fetch/index.js)
