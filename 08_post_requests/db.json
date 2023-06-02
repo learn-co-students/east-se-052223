@@ -1,0 +1,29 @@
+{
+  "cats": [
+    {
+      "id": 1,
+      "name": "luke",
+      "bio": "wants all the trouble"
+    },
+    {
+      "id": 2,
+      "name": "leia",
+      "bio": "needs no trouble"
+    },
+    {
+      "name": "baxter",
+      "bio": "eats grass",
+      "id": 3
+    },
+    {
+      "name": "murphy",
+      "bio": "hides a lot",
+      "id": 4
+    },
+    {
+      "name": "cat in hat",
+      "bio": "eats green eggs and ham",
+      "id": 5
+    }
+  ]
+}
