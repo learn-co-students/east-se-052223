@@ -1,0 +1,14 @@
+{
+  "cats": [
+    {
+      "id": 1,
+      "name": "luke",
+      "bio": "wants all the trouble"
+    },
+    {
+      "id": 2,
+      "name": "leia",
+      "bio": "needs no trouble"
+    }
+  ]
+}
