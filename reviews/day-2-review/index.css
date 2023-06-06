@@ -1,0 +1,11 @@
+body {
+    background: black;
+    color: white;
+    text-align: center
+}
+
+span {
+    margin: 5px;
+    font-size: 35px;
+    cursor: pointer
+}
