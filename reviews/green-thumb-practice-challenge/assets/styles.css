@@ -1,0 +1,49 @@
+body {
+  background-color: #ebebeb;
+}
+
+.heading {
+  background-color: #333333;
+  margin-bottom: 20px;
+  padding: 5px 0px 5px 15px;
+}
+
+.name {
+  background-color: #333333;
+  padding: 5px;
+  color: white;
+}
+
+.content {
+  color: #3e8fde;
+}
+
+#subtitle {
+  color: white;
+  margin-left: 55px;
+}
+
+#featured {
+  margin-left: 20px;
+}
+
+#plants li::before {
+  content: "";
+}
+
+.plant {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.dead {
+  color: lightgray;
+}
+
+img {
+  max-width: 25vw;
+}
+
+#plant-info {
+  padding-bottom: 15px;
+}
