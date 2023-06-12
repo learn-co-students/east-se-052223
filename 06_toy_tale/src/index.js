@@ -14,9 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
-
 const container = document.getElementById('toy-collection')
 // Create an event listener that gives users the ability to click a button to "like" a toy. When the button is clicked, the number of likes should be updated to the DOM
 

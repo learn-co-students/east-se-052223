@@ -54,3 +54,5 @@ function renderMain( thatRamenObj ) {
     ratingElement.innerText = thatRamenObj.rating
     commentElement.innerText = thatRamenObj.comment
 }
+
+
