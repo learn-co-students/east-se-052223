@@ -6,6 +6,7 @@ const projects = [
     phase: 4,
     link: "https://great-outdoors-guide.netlify.app",
     image: "https://i.imgur.com/8GnP2Uw.png",
+    likes: 10
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ const projects = [
     phase: 4,
     link: "https://bookher.netlify.app/new_project",
     image: "https://i.imgur.com/INs84Uk.png",
+    likes: 5
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ const projects = [
     phase: 4,
     link: "https://code-bucket.netlify.app",
     image: "https://i.imgur.com/Hz84TA2.png",
+    likes: 5
   },
   {
     id: 11,
@@ -31,6 +34,7 @@ const projects = [
     phase: 4,
     link: "https://yourseum.netlify.app",
     image: "https://i.imgur.com/yywQCoi.png",
+    likes: 5
   },
   {
     id: 12,
@@ -39,6 +43,7 @@ const projects = [
     phase: 4,
     link: "https://spreddit.netlify.app",
     image: "https://i.imgur.com/cyZCpWs.png",
+    likes: 5
   },
   {
     id: 13,
@@ -47,6 +52,7 @@ const projects = [
     phase: 4,
     link: "https://snackattack.netlify.app",
     image: "https://i.imgur.com/VTJB4qy.png",
+    likes: 5
   },
   {
     id: 20,
@@ -55,6 +61,7 @@ const projects = [
     phase: 3,
     link: "https://youtravel.netlify.app/",
     image: "https://i.imgur.com/Y6mlORn.png",
+    likes: 5
   },
   {
     id: 22,
@@ -63,6 +70,7 @@ const projects = [
     phase: 3,
     link: "https://github.com/maifam/breathe_frontend",
     image: "https://i.imgur.com/hAuKx3K.png",
+    likes: 5
   },
   {
     id: 23,
@@ -72,6 +80,7 @@ const projects = [
     phase: 3,
     link: "https://homestory.netlify.app",
     image: "https://i.imgur.com/il8ft21.png",
+    likes: 5
   },
   {
     id: 24,
@@ -80,6 +89,7 @@ const projects = [
     phase: 4,
     link: "https://www.locksleyr.com",
     image: "https://i.imgur.com/XOnaclL.png",
+    likes: 5
   },
   {
     id: 25,
@@ -88,6 +98,7 @@ const projects = [
     phase: 4,
     link: "https://gamesrx.netlify.app",
     image: "https://i.imgur.com/Japzh6v.png",
+    likes: 5
   },
 ];
 

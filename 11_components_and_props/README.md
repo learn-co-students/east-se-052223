@@ -2,11 +2,11 @@
 
 ### SWBATs:
 
-- [ ] Review the benefits of React over Vanilla JS
-- [ ] Review the difference between HTML and JSX
-- [ ] Review the importance of Components
-- [ ] Review how a component is written
-- [ ] Explain what props are and how to create them
+- [X] Review the benefits of React over Vanilla JS
+- [X] Review the difference between HTML and JSX
+- [X] Review the importance of Components
+- [X] Review how a component is written
+- [X] Explain what props are and how to create them
 - [ ] Recognize destructured props and how to work with them
 - [ ] Recognize best practices when writing components and props
 - [ ] Observe how to render multiple components from a list
