@@ -4,7 +4,7 @@ function ProjectContainer(props) {
   const { projects } = props
 
   const renderProjects = projects.map((project) => {
-    const { id, name, about, image, phase, link, likes } = project
+    const { id, name, about, image, phase, link } = project
     return <ProjectCard 
       // specific to react
       key={id} 
@@ -14,7 +14,6 @@ function ProjectContainer(props) {
       phase={phase}
       image={image}
       link={link}
-      likes={likes}
     />
   })
 
