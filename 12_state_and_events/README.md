@@ -8,7 +8,7 @@
 - [X] Explain handling events in react
 - [X] Explain purpose of Synthetic Event
 - [X] Recognize adding event listeners in React
-- [ ] Explain component lifecycle
+- [X] Explain component lifecycle
 - [ ] Explain state in react
 - [ ] Recognize creating state
 - [ ] Recognize updating state

@@ -1,9 +1,14 @@
+import AnotherChild from "./AnotherChild"
+
 function Child(props) {
 
   console.log('Child')
 
   return (
-    <div>Child</div>
+    <div>
+      Child
+      <AnotherChild />
+    </div>
   )
 }
 

@@ -5,19 +5,14 @@ import './App.css';
 
 // Component Lifecycle
 // Birth creation // Mounting - added to the DOM
-
-// Growth updating phase // rerenders
-
+// Growth updating // rerenders
 // Death unmounting 
 
 const name = "React"
 
 function App() {
-  let showChild = false
-
-  const state = useState(false)
-
-  // console.log(state)
+  const [showChild, setShowChild] = useState(false)
+  const [count, setCount] = useState(0)
 
   function renderJsx() {
     return (
@@ -28,25 +23,27 @@ function App() {
   }
 
   function handleButtonClick(event) {
-    console.log('button')
     event.stopPropagation()
-    showChild = true
+    // if you need the currentState pass in a callback function
+      // that callback function will get passed the current value of state
+      // what it returns will be the new state
+    setShowChild(true)
+    setCount((currentCount) => currentCount + 1)
   }
-
-  console.log('Parent')
+  console.log('app')
 
   return (
     <div 
       className="App" 
       onClick={() => console.log('div')} 
-      // onMouseOver={() => console.log('mouseover')}
     >
-      {renderJsx()}
-      App
+      { count }
       { showChild ? <Child name={name} /> : null}
+      <Child name={name} />
       <button onClick={handleButtonClick}>Click Me</button>
     </div>
   );
 }
 
 export default App;
+
