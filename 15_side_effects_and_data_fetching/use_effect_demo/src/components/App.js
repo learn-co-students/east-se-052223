@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Child from "./Child";
 
 function App() {
   const [clicked, setClicked] = useState(false);
+  const [count, setCount] = useState(0);
+
+  // useEffect(() => {
+  //   console.log("App mounted");
+  // }, []);
+
+  useEffect(() => {
+    // if(count === 3) {
+    //   console.log("App useffect");
+    // }
+  }, [count, clicked]);
 
   function handleClick() {
     setClicked(true);
