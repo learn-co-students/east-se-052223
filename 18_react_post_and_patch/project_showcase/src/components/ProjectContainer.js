@@ -1,7 +1,7 @@
 import ProjectCard from "./ProjectCard";
 
 function ProjectContainer(props) {
-  const { projects } = props;
+  const { projects, onProjectUpdate } = props;
 
   const renderProjects = projects.map((project) => {
     const { id, name, about, image, phase, link, applause } = project;
@@ -15,6 +15,7 @@ function ProjectContainer(props) {
         image={image}
         link={link}
         applause={applause}
+        onProjectUpdate={onProjectUpdate}
       />
     );
   });

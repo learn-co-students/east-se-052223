@@ -1,13 +1,27 @@
-function ProjectCard({ name, projectId, about, phase, image, link, applause }) {
+function ProjectCard({
+  name,
+  projectId,
+  about,
+  phase,
+  image,
+  link,
+  applause,
+  onProjectUpdate,
+}) {
   function handleApplauseClick() {
-    // handle Applause Click
-    console.log(
-      "update applause: ",
-      applause,
-      "=applause count ",
-      projectId,
-      "=project id"
-    );
+    const fetchObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        applause: applause + 1,
+      }),
+    };
+
+    fetch(`http://localhost:3001/projects/${projectId}`, fetchObj)
+      .then((resp) => resp.json())
+      .then((updatedProject) => onProjectUpdate(updatedProject));
   }
 
   return (
