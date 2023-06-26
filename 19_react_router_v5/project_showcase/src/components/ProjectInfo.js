@@ -1,14 +1,27 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 function ProjectInfo() {
+  const { id } = useParams();
+  const [project, setProject] = useState({});
+  let { id: projectId, name, about } = project;
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/projects/${id}`)
+      .then((resp) => resp.json())
+      .then((data) => setProject(data));
+  }, [id]);
+
   return (
     <section>
-      <h2>Project Name here</h2>
-      <p>Project About here</p>
-      <img src={"project image"} alt={"project about"} />
+      <h2>{name}</h2>
+      <p>{about}</p>
+      <img src={project.image} alt={project.about} />
       <ul>
-        <li>Project phase</li>
-        <li>Project applause</li>
+        <li>Phase {project.phase}</li>
+        <li>Applause: {project.applause}</li>
         <li>
-          <a href="project link">Project Link</a>
+          <a href={project.link}>Project Link</a>
         </li>
       </ul>
     </section>

@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 function ProjectCard({
   name,
   projectId,
@@ -8,6 +10,8 @@ function ProjectCard({
   applause,
   onProjectUpdate,
 }) {
+  let history = useHistory();
+
   function handleApplauseClick() {
     const fetchObj = {
       method: "PATCH",
@@ -24,6 +28,10 @@ function ProjectCard({
       .then((updatedProject) => onProjectUpdate(updatedProject));
   }
 
+  function handleClick() {
+    history.push(`/projects/${projectId}`);
+  }
+
   return (
     <li className="card">
       <h3>{name}</h3>
@@ -34,6 +42,7 @@ function ProjectCard({
         </button>
       </figure>
       <p>{about}</p>
+      <button onClick={handleClick}>More Info</button>
     </li>
   );
 }
