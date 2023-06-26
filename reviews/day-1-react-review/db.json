@@ -1,0 +1,22 @@
+{
+  "potatoes": [
+    {
+      "name": "Mashed Potatoes",
+      "about": "they are delicious",
+      "cookingTimer": "10 minutes",
+      "id": 1
+    },
+    {
+      "name": "Scalloped Potatoes",
+      "about": "they are good",
+      "cookingTimer": "20 minutes",
+      "id": 2
+    },
+    {
+      "name": "Sweet Potatoes",
+      "about": "they are excellent!",
+      "cookingTimer": "15 minutes",
+      "id": 3
+    }
+  ]
+}
