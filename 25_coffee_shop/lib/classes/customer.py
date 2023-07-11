@@ -14,13 +14,16 @@ class Customer:
 
     name = property(get_name, set_name)
 
+    @property
     def orders(self):
         from classes.order import Order
-        pass
+        return [order for order in Order.all if order.customer == self]
 
+    @property
     def coffees(self):
-        from classes.coffee import Coffee
-        pass
+        all_customers_coffees = [order.coffee for order in self.orders]
+        set_coffees = set(all_customers_coffees)
+        return list(set_coffees)
 
     def create_order(self, coffee, price):
         from classes.order import Order
