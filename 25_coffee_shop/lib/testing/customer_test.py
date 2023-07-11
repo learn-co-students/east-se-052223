@@ -47,7 +47,7 @@ class TestCustomer:
         order_2 = Order(customer, coffee, 5)
         order_3 = Order(customer_2, coffee, 5)
 
-        assert (len(customer.orders()) == 2)
+        assert (len(customer.orders) == 2)
         assert (not order_3 in customer.orders)
         assert (order_1 in customer.orders)
         assert (order_2 in customer.orders)
