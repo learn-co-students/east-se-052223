@@ -33,18 +33,21 @@
 #  def index():
 #    return '<h1>Hello World!</h1>'
 
-# create route for all productions
 
 # 7. ✅ Run the server with `flask run` and verify your route in the browser at `http://localhost:5555/`
 
-# 8. ✅ Create a dynamic route
+# 8. ✅ create route for all productions
+# 9. ✅ Create a dynamic route
 
-
-# 9.✅ Update the route to find a `production` by its `title` and send it to our browser
+# 10.✅ Update the route to find a `production` by its `title` and send it to our browser
 
 # Before continuing, import `jsonify` and `make_response` from Flask at the top of the file.
 # `make_response` will allow us to make a response object with the response body and status code
 # `jsonify` will convert our query into JSON
+
+# 11.✅ route for all crew members
+
+# 12.✅ dynamic route for crew member by id
 
 
 # Note: If you'd like to run the application as a script instead of using `flask run`, uncomment the line below
