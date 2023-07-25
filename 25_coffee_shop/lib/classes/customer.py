@@ -27,4 +27,4 @@ class Customer:
 
     def create_order(self, coffee, price):
         from classes.order import Order
-        pass
+        Order(self, coffee, price)
