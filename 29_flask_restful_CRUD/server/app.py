@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-from flask import Flask, make_response, jsonify
+from flask import Flask, make_response, jsonify, request
 from flask_migrate import Migrate
 # 1. ✅ import Api and Resource from flask_restful
+from flask_restful import Api, Resource
 from models import db, Production, CrewMember
 
 app = Flask(__name__)
@@ -10,35 +11,56 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 migrate = Migrate(app, db)
 db.init_app(app)
 # 2. ✅ initialize RESTful API with Api class
+api = Api(app)
 
 
 @app.route('/')
 def index():
     return '<h1>Hello World!</h1>'
 
-# 3. ✅ convert routes to use flask_restful
 
+class Productions(Resource):
+    def get(self):
+        productions = Production.query.all()
+        all_productions_list = []
+        for production in productions:
+            production_dict = {
+                "title": production.title,
+                "image": production.image,
+                "description": production.description,
+                "created_at": production.created_at
+            }
+            all_productions_list.append(production_dict)
 
-@app.route('/productions')
-def productions():
-    productions = Production.query.all()
-    all_productions_list = []
-    for production in productions:
-        production_dict = {
+        response = make_response(
+            jsonify(all_productions_list),
+            200
+        )
+
+        return response
+
+    def post(self):
+        data = request.get_json()
+        production = Production(
+            title=data['title'],
+            budget=data['budget'],
+            image=data['image'],
+            director=data['director'],
+            description=data['description'],
+            ongoing=data['ongoing']
+        )
+        db.session.add(production)
+        db.session.commit()
+
+        response_dict = {
             "title": production.title,
-            "image": production.image,
-            "description": production.description,
-            "created_at": production.created_at
+            "id": production.id
         }
-        all_productions_list.append(production_dict)
+        response = make_response(jsonify(response_dict), 201)
+        return response
 
-    response = make_response(
-        jsonify(all_productions_list),
-        200
-    )
 
-    return response
-
+api.add_resource(Productions, "/productions")
 # 4. ✅ Is this route RESTful?
 
 
@@ -56,44 +78,74 @@ def one_production(title):
     )
     return response
 
-# 5. ✅ convert to flask_restful
+
+class CrewMembers(Resource):
+    def get(self):
+        members = CrewMember.query.all()
+        members_list = []
+        for member in members:
+            member_dict = {
+                "id": member.id,
+                "name": member.name
+            }
+            members_list.append(member_dict)
+
+        response = make_response(
+            jsonify(members_list),
+            200
+        )
+
+        return response
 
 
-@app.route('/crew_members')
-def crew_members():
-    members = CrewMember.query.all()
-    members_list = []
-    for member in members:
-        member_dict = {
-            "id": member.id,
-            "name": member.name
-        }
-        members_list.append(member_dict)
-
-    response = make_response(
-        jsonify(members_list),
-        200
-    )
-
-    return response
+api.add_resource(CrewMembers, '/crew_members')
 
 # 6. ✅ convert to flask_restful
 
 
-@app.route('/crew_members/<int:id>')
-def crew_member(id):
-    crew_member = CrewMember.query.filter(CrewMember.id == id).first()
-    member_dict = {
-        "id": crew_member.id,
-        "name": crew_member.name,
-        "production_title": crew_member.production.title
-    }
-    response = make_response(member_dict, 200)
-    return response
+class CrewMembersById(Resource):
+    def get(self, id):
+        crew_member = CrewMember.query.filter(CrewMember.id == id).first()
+        member_dict = {
+            "id": crew_member.id,
+            "name": crew_member.name,
+            "production_title": crew_member.production.title
+        }
+        response = make_response(member_dict, 200)
+        return response
 
-# 7. ✅ Create a new production
+    def patch(self, id):
+        crew_member = CrewMember.query.filter(CrewMember.id == id).first()
+        data = request.get_json()
 
-# 8. ✅ Update an existing crew member
+        for attr in data:
+            setattr(crew_member, attr, data[attr])
+
+        # db.session.add(crew_member)
+        db.session.commit()
+
+        response_dict = {
+            "name": crew_member.name
+        }
+
+        response = make_response(response_dict, 200)
+        return response
+
+    def delete(self, id):
+        crew_member = CrewMember.query.filter(
+            CrewMember.id == id).first()
+        db.session.delete(crew_member)
+        db.session.commit()
+        response_dict = {
+            "message": f"Successfully deleted crew member with id {id}"
+        }
+
+        response = make_response(response_dict, 200)
+        return response
+
+
+api.add_resource(CrewMembersById, '/crew_members/<int:id>')
+
 
 # 9. ✅ Delete an existing crew member
 
