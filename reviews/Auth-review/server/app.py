@@ -102,6 +102,7 @@ class ProductionByID(Resource):
 
 api.add_resource(ProductionByID, '/productions/<int:id>')
 
+
 class Users(Resource):
     def post(self):
         data = request.get_json()
@@ -118,9 +119,21 @@ class Users(Resource):
         response = make_response(user.to_dict(), 201)
         return response
 
+
 api.add_resource(Users, '/users')
 
-# ✅ Create a Login route
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    try:
+        user = User.query.filter_by(name=data['name']).first()
+        if user.authenticate(data['password']):
+            session['user_id'] = user.id
+            response = make_response(user.to_dict(), 200)
+            return response
+    except:
+        return make_response({'error': 'name or password incorrect'}, 401)
 
 
 @app.route('/authorized', methods=['GET'])
@@ -130,14 +143,23 @@ def authorize():
         response = make_response(user.to_dict(), 200)
         return response
     except:
-        make_response({
-            "message": "need to login"
-        }, 401)
+        return make_response({
+            "error": "User not found"
+        }, 404)
 
-# ✅ Logout
-# Clear the user id in session by setting the key to None
-# create a 204 no content response to send back to the client
-# ✅ Navigate to client/src/components/Navigation.js to build the logout button!
+
+@app.route('/logout', methods=['DELETE'])
+def logout():
+    session['user_id'] = None
+    return make_response('', 204)
+
+
+@app.before_request
+def check_logged_in():
+    if (request.endpoint in ['productions', 'productionbyid', 'logout'] and request.method != 'GET') \
+            or request.endpoint == 'authorize':
+        if not session.get('user_id'):
+            return make_response({'error': "Unauthorized"}, 401)
 
 
 @app.errorhandler(NotFound)

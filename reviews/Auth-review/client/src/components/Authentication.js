@@ -23,8 +23,7 @@ function Authentication({ updateUser }) {
     },
     validationSchema: formSchema,
     onSubmit: (values) => {
-      console.log(values);
-      fetch("/users", {
+      fetch(signUp ? "/users" : "/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
